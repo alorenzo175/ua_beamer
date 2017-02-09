@@ -1,0 +1,96 @@
+\documentclass{beamer}
+\DeclareOptionBeamer{shadow}[true]{\def\beamer@themerounded@shadow{#1}}
+\ExecuteOptionsBeamer{shadow=true}
+\ProcessOptionsBeamer
+
+% favorite themes: AnnArbor, Frankfurt, Madrid, Luebeck
+\mode<presentation>{\usetheme{Luebeck}}
+
+% Color modification
+\definecolor{UAblue}{RGB}{12, 35, 75}
+\definecolor{UAdarkblue}{RGB}{0, 25, 74}
+\definecolor{UAred}{RGB}{171, 5, 32}
+\definecolor{UAdarkred}{RGB}{143, 17, 36}
+\definecolor{lightriver}{RGB}{182, 190, 193}
+
+\setbeamercolor{section in toc}{fg=UAdarkred,bg=white}
+\setbeamercolor{subsection in toc}{fg=UAdarkred,bg=white}
+\setbeamercolor{alerted text}{fg=UAred}
+\setbeamercolor*{palette primary}{fg=white,bg=UAblue}
+\setbeamercolor*{palette secondary}{fg=UAdarkblue,bg=lightriver}
+\setbeamercolor*{palette tertiary}{fg=white,bg=UAred}
+\setbeamercolor*{palette quaternary}{fg=white,bg=UAred}
+\setbeamercolor{title}{fg=white,bg=UAblue}
+\setbeamercolor{titlelike}{fg=white,bg=UAblue}
+\setbeamercolor{frametitle}{bg=lightriver,fg=UAdarkblue}
+\setbeamercolor{frametitle right}{fg=white}
+\setbeamercolor*{separation line}{fg=UAblue}
+\setbeamercolor*{fine separation line}{fg=UAblue}
+
+% make some nice edges and shadow
+\setbeamertemplate{blocks}[rounded][shadow=\beamer@themerounded@shadow]
+\setbeamertemplate{items}[circle]
+\setbeamercolor{item}{fg=UAblue}
+\setbeamertemplate{sections/subsections in toc}[circle]
+\setbeamertemplate{title page}[default][colsep=-4bp,rounded=true,shadow=\beamer@themerounded@shadow]
+\setbeamertemplate{part
+  page}[default][colsep=-4bp,rounded=true,shadow=\beamer@themerounded@shadow]
+
+% logo, depending on title, may move this around to fit on page
+% properly with vspace and hspace
+\titlegraphic{\vspace{+0.5cm} \includegraphics[height=1cm]{ua_stack_rgb_0.pdf}}
+
+%% packages
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{relsize}
+\usepackage{multimedia}
+
+
+\title{The Title}
+\author[LastName]{FirstName LastName}
+\institute{University of Arizona}
+\date{\today}
+\subject{Some Subject}
+
+\AtBeginSection[]{
+\begin{frame}<beamer>
+  \frametitle{Outline}
+  \tableofcontents[currentsection]
+\end{frame}
+%\addtocounter{framenumber}{-1} % remove for proper page numbers
+}
+
+\begin{document}
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \tableofcontents
+\end{frame}
+
+\section{Introduction}
+\label{sec:intro}
+
+\begin{frame}{Introduction}
+blah
+\end{frame}
+
+\section{Meat}
+\label{sec:meat}
+
+\begin{frame}{Some Stuff}
+\centering \movie[poster,width=3cm,height=2cm,showcontrols=true]{test}{TFSmovie7.mp4}
+\end{frame}
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+\begin{frame}{Conclusions}
+fin
+\end{frame}
+
+\end{document}
+
+%% https://github.com/jvcasill/UA_beamer_slides
