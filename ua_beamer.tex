@@ -7,15 +7,30 @@
 \mode<presentation>{\usetheme{Luebeck}}
 
 % Color modification
+% primary
 \definecolor{UAblue}{RGB}{12, 35, 75}
 \definecolor{UAdarkblue}{RGB}{0, 25, 74}
 \definecolor{UAred}{RGB}{171, 5, 32}
 \definecolor{UAdarkred}{RGB}{143, 17, 36}
+
+% secondary
+\definecolor{cactus}{RGB}{92, 135, 39}
+\definecolor{sky}{RGB}{132, 210, 226}
+\definecolor{river}{RGB}{7, 104, 115}
+\definecolor{sand}{RGB}{241, 158, 31}
+\definecolor{mesa}{RGB}{185, 85, 39}
+\definecolor{brick}{RGB}{74, 48, 39}
+
+% neutral palette
+\definecolor{lightcactus}{RGB}{207, 224, 216}
+\definecolor{lightsky}{RGB}{200, 217, 216}
 \definecolor{lightriver}{RGB}{182, 190, 193}
+\definecolor{lightsand}{RGB}{252, 225, 182}
+\definecolor{lightmesa}{RGB}{250, 231, 216}
+\definecolor{lightbrick}{RGB}{230, 227, 217}
 
 \setbeamercolor{section in toc}{fg=UAdarkred,bg=white}
 \setbeamercolor{subsection in toc}{fg=UAdarkred,bg=white}
-\setbeamercolor{alerted text}{fg=UAred}
 \setbeamercolor*{palette primary}{fg=white,bg=UAblue}
 \setbeamercolor*{palette secondary}{fg=UAdarkblue,bg=lightriver}
 \setbeamercolor*{palette tertiary}{fg=white,bg=UAred}
@@ -26,6 +41,11 @@
 \setbeamercolor{frametitle right}{fg=white}
 \setbeamercolor*{separation line}{fg=UAblue}
 \setbeamercolor*{fine separation line}{fg=UAblue}
+
+% block colors
+\setbeamercolor{block title}{fg=white,bg=UAblue}
+\setbeamercolor{block title alerted}{fg=white,bg=UAdarkred}
+\setbeamercolor{block title example}{fg=white,bg=cactus}
 
 % make some nice edges and shadow
 \setbeamertemplate{blocks}[rounded][shadow=\beamer@themerounded@shadow]
@@ -40,11 +60,15 @@
 % properly with vspace and hspace
 \titlegraphic{\vspace{+0.5cm} \includegraphics[height=1cm]{ua_stack_rgb_0.pdf}}
 
+% hyperlinks
+\hypersetup{colorlinks,linkcolor=,urlcolor=river}
+
 %% packages
 \usepackage{amsmath}
-\usepackage{listings}
-\usepackage{relsize}
-\usepackage{multimedia}
+%\usepackage{listings}
+%\usepackage{relsize}
+%\usepackage{multimedia}
+\usepackage{lipsum}
 
 
 \title{The Title}
@@ -58,7 +82,8 @@
   \frametitle{Outline}
   \tableofcontents[currentsection]
 \end{frame}
-%\addtocounter{framenumber}{-1} % remove for proper page numbers
+\addtocounter{framenumber}{-1} % remove for proper page numbers on
+                               % intermediate outline pages
 }
 
 \begin{document}
@@ -81,7 +106,51 @@ blah
 \label{sec:meat}
 
 \begin{frame}{Some Stuff}
-\centering \movie[poster,width=3cm,height=2cm,showcontrols=true]{test}{TFSmovie7.mp4}
+  \begin{itemize}
+  \item item 1
+  \item item 2
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Proof}
+  \begin{proof}
+    \lipsum[4]
+  \end{proof}
+\end{frame}
+
+\begin{frame}{Theorem}
+  \begin{theorem}
+    \lipsum[4]
+  \end{theorem}
+\end{frame}
+
+\begin{frame}{Block}
+\begin{block}{the block}
+\lipsum[2]
+\end{block}
+\end{frame}
+
+\begin{frame}{Alert Block}
+\label{alertblock}
+\begin{alertblock}{the block}
+\lipsum[2]
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{Example}
+\begin{example}
+\lipsum[5]
+\end{example}
+\end{frame}
+
+\begin{frame}{Hyperlinks}
+Here is an internal
+\hyperlink{alertblock}{link to alert block}
+
+
+\href{http://test}{test}
+
+\url{http://test}
 \end{frame}
 
 \section{Conclusion}
@@ -92,5 +161,3 @@ fin
 \end{frame}
 
 \end{document}
-
-%% https://github.com/jvcasill/UA_beamer_slides
